@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Westchester Chiropractic Healthcare, P.C. | Mount Vernon, NY</title>
+<meta name="description" content="Westchester Chiropractic Healthcare, P.C. Your neighborhood chiropractic and physical therapy clinic in Mount Vernon, NY since 1999. Book an appointment today.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal-900: #0d3b3a;
+    --teal-700: #15706b;
+    --teal-600: #1b857e;
+    --teal-500: #22a79d;
+    --teal-050: #e8f6f4;
+    --accent: #f2a541;
+    --accent-dark: #d9871f;
+    --ink: #17282a;
+    --ink-soft: #46595b;
+    --line: #dce7e6;
+    --bg: #ffffff;
+    --bg-soft: #f4faf9;
+    --bg-deep: #0d3b3a;
+    --white: #ffffff;
+    --radius: 16px;
+    --radius-sm: 10px;
+    --shadow-sm: 0 2px 10px rgba(13, 59, 58, 0.06);
+    --shadow-md: 0 14px 40px rgba(13, 59, 58, 0.12);
+    --maxw: 1140px;
+    --font-head: "Poppins", system-ui, sans-serif;
+    --font-body: "Inter", system-ui, sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-body);
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.15; color: var(--ink); }
+  a { color: inherit; text-decoration: none; }
+  img, svg { display: block; max-width: 100%; }
+  .wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+  section { padding: 84px 0; }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: var(--font-head); font-weight: 600; font-size: 1rem;
+    padding: 14px 26px; border-radius: 999px; border: 2px solid transparent;
+    cursor: pointer; transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+    white-space: nowrap;
+  }
+  .btn-primary { background: var(--accent); color: var(--teal-900); box-shadow: 0 8px 20px rgba(242, 165, 65, 0.35); }
+  .btn-primary:hover { background: var(--accent-dark); transform: translateY(-2px); }
+  .btn-ghost { background: transparent; color: var(--white); border-color: rgba(255,255,255,0.55); }
+  .btn-ghost:hover { background: rgba(255,255,255,0.12); transform: translateY(-2px); }
+  .btn-solid { background: var(--teal-600); color: var(--white); box-shadow: var(--shadow-sm); }
+  .btn-solid:hover { background: var(--teal-700); transform: translateY(-2px); }
+  .btn-outline { background: transparent; color: var(--teal-700); border-color: var(--teal-600); }
+  .btn-outline:hover { background: var(--teal-050); transform: translateY(-2px); }
+
+  /* Top bar */
+  .topbar {
+    background: var(--teal-900); color: #cfe9e6;
+    font-size: 0.86rem; font-weight: 500;
+  }
+  .topbar .wrap { display: flex; flex-wrap: wrap; gap: 8px 28px; align-items: center; justify-content: center; padding-top: 9px; padding-bottom: 9px; }
+  .topbar span { display: inline-flex; align-items: center; gap: 8px; }
+  .topbar svg { width: 15px; height: 15px; }
+  .topbar strong { color: #fff; font-weight: 600; }
+
+  /* Nav */
+  header.nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: saturate(180%) blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; padding-top: 14px; padding-bottom: 14px; gap: 16px; }
+  .brand { display: flex; align-items: center; gap: 13px; }
+  .brand .mark {
+    width: 46px; height: 46px; border-radius: 13px;
+    background: linear-gradient(135deg, var(--teal-500), var(--teal-700));
+    display: grid; place-items: center; box-shadow: var(--shadow-sm); flex: none;
+  }
+  .brand .mark svg { width: 26px; height: 26px; }
+  .brand .name { font-family: var(--font-head); font-weight: 700; font-size: 1.05rem; color: var(--teal-900); line-height: 1.1; }
+  .brand .name small { display: block; font-family: var(--font-body); font-weight: 500; font-size: 0.72rem; color: var(--ink-soft); letter-spacing: 0.02em; }
+  nav.links { display: flex; align-items: center; gap: 30px; }
+  nav.links a { font-weight: 500; color: var(--ink-soft); font-size: 0.96rem; transition: color .15s ease; }
+  nav.links a:hover { color: var(--teal-700); }
+  .nav-cta { display: flex; align-items: center; gap: 14px; }
+  .nav-phone { font-family: var(--font-head); font-weight: 700; color: var(--teal-700); font-size: 1.02rem; }
+
+  /* Hero */
+  .hero { background: linear-gradient(160deg, var(--teal-900) 0%, var(--teal-700) 55%, var(--teal-600) 100%); color: #eafaf8; position: relative; overflow: hidden; }
+  .hero::before { content: ""; position: absolute; top: -140px; right: -120px; width: 460px; height: 460px; border-radius: 50%; background: radial-gradient(circle, rgba(34,167,157,0.55), transparent 70%); }
+  .hero::after { content: ""; position: absolute; bottom: -180px; left: -140px; width: 420px; height: 420px; border-radius: 50%; background: radial-gradient(circle, rgba(242,165,65,0.22), transparent 70%); }
+  .hero .wrap { position: relative; z-index: 2; display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 52px; align-items: center; }
+  .hero-pill { display: inline-flex; align-items: center; gap: 9px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.22); padding: 8px 16px; border-radius: 999px; font-weight: 600; font-size: 0.85rem; color: #d7f4f0; margin-bottom: 22px; }
+  .hero-pill svg { width: 15px; height: 15px; }
+  .hero h1 { font-size: clamp(2.1rem, 4.6vw, 3.5rem); font-weight: 800; color: #fff; letter-spacing: -0.01em; }
+  .hero h1 .hl { color: var(--accent); }
+  .hero .lede { font-size: 1.18rem; margin: 20px 0 14px; color: #dcf3f0; max-width: 540px; }
+  .hero .tag { font-family: var(--font-head); font-weight: 600; color: var(--accent); font-size: 1.05rem; margin-bottom: 30px; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; }
+  .hero-trust { display: flex; flex-wrap: wrap; gap: 26px; margin-top: 36px; }
+  .hero-trust div { display: flex; flex-direction: column; }
+  .hero-trust b { font-family: var(--font-head); font-size: 1.5rem; color: #fff; font-weight: 700; }
+  .hero-trust span { font-size: 0.85rem; color: #bfe6e1; }
+
+  /* Hero card */
+  .hero-card { background: #fff; border-radius: 22px; padding: 30px; box-shadow: var(--shadow-md); color: var(--ink); }
+  .hero-card h3 { font-size: 1.22rem; color: var(--teal-900); margin-bottom: 4px; }
+  .hero-card p.sub { color: var(--ink-soft); font-size: 0.92rem; margin-bottom: 18px; }
+  .hero-card .row { display: flex; align-items: center; gap: 13px; padding: 13px 0; border-bottom: 1px solid var(--line); }
+  .hero-card .row:last-of-type { border-bottom: none; }
+  .hero-card .ic { width: 40px; height: 40px; border-radius: 11px; background: var(--teal-050); display: grid; place-items: center; flex: none; }
+  .hero-card .ic svg { width: 20px; height: 20px; }
+  .hero-card .row b { font-family: var(--font-head); font-size: 0.98rem; color: var(--ink); display: block; }
+  .hero-card .row span { font-size: 0.86rem; color: var(--ink-soft); }
+  .hero-card .btn { width: 100%; justify-content: center; margin-top: 20px; }
+
+  /* Section heading */
+  .shead { text-align: center; max-width: 680px; margin: 0 auto 52px; }
+  .eyebrow { font-family: var(--font-head); font-weight: 700; font-size: 0.82rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal-600); margin-bottom: 12px; }
+  .shead h2 { font-size: clamp(1.8rem, 3.4vw, 2.5rem); font-weight: 700; color: var(--teal-900); }
+  .shead p { color: var(--ink-soft); font-size: 1.08rem; margin-top: 14px; }
+
+  /* Services */
+  .services { background: var(--bg-soft); }
+  .svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+  .svc-card { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 32px 28px; box-shadow: var(--shadow-sm); transition: transform .18s ease, box-shadow .18s ease; }
+  .svc-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+  .svc-ic { width: 58px; height: 58px; border-radius: 15px; background: linear-gradient(135deg, var(--teal-500), var(--teal-700)); display: grid; place-items: center; margin-bottom: 20px; }
+  .svc-ic svg { width: 30px; height: 30px; }
+  .svc-card h3 { font-size: 1.2rem; color: var(--teal-900); margin-bottom: 10px; }
+  .svc-card p { color: var(--ink-soft); font-size: 0.96rem; }
+
+  /* Cases strip */
+  .cases { background: #fff; }
+  .cases-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+  .case-chip { background: var(--teal-050); border: 1px solid #cfe9e5; border-radius: var(--radius-sm); padding: 22px 16px; text-align: center; }
+  .case-chip .ci { width: 42px; height: 42px; margin: 0 auto 12px; border-radius: 11px; background: #fff; display: grid; place-items: center; box-shadow: var(--shadow-sm); }
+  .case-chip .ci svg { width: 22px; height: 22px; }
+  .case-chip b { font-family: var(--font-head); font-size: 0.98rem; color: var(--teal-900); display: block; line-height: 1.25; }
+  .case-note { text-align: center; margin-top: 30px; font-size: 0.95rem; color: var(--ink-soft); }
+  .case-note strong { color: var(--teal-700); }
+
+  /* About */
+  .about { background: var(--bg-soft); }
+  .about-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 56px; align-items: center; }
+  .about-visual { position: relative; }
+  .about-visual .frame {
+    aspect-ratio: 4 / 5; border-radius: 22px; overflow: hidden;
+    background:
+      radial-gradient(circle at 30% 25%, rgba(255,255,255,0.35), transparent 55%),
+      linear-gradient(150deg, var(--teal-600), var(--teal-900));
+    display: grid; place-items: center; box-shadow: var(--shadow-md);
+  }
+  .about-visual .frame svg { width: 46%; height: auto; opacity: 0.92; }
+  .about-badge {
+    position: absolute; bottom: -22px; right: -14px; background: #fff; border-radius: 16px;
+    padding: 18px 22px; box-shadow: var(--shadow-md); display: flex; align-items: center; gap: 14px;
+  }
+  .about-badge .yr { font-family: var(--font-head); font-weight: 800; font-size: 2rem; color: var(--accent-dark); line-height: 1; }
+  .about-badge span { font-size: 0.82rem; color: var(--ink-soft); font-weight: 500; }
+  .about h2 { font-size: clamp(1.8rem, 3.4vw, 2.5rem); color: var(--teal-900); margin-bottom: 18px; }
+  .about p { color: var(--ink-soft); font-size: 1.05rem; margin-bottom: 16px; }
+  .vals { list-style: none; margin-top: 22px; display: grid; gap: 14px; }
+  .vals li { display: flex; align-items: flex-start; gap: 13px; font-size: 1rem; color: var(--ink); }
+  .vals .tick { width: 26px; height: 26px; border-radius: 50%; background: var(--teal-050); display: grid; place-items: center; flex: none; margin-top: 2px; }
+  .vals .tick svg { width: 15px; height: 15px; }
+  .vals b { font-family: var(--font-head); font-weight: 600; }
+
+  /* Steps */
+  .steps { background: var(--teal-900); color: #eafaf8; }
+  .steps .shead h2 { color: #fff; }
+  .steps .shead p { color: #bfe6e1; }
+  .steps .eyebrow { color: var(--accent); }
+  .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+  .step { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: var(--radius); padding: 30px 26px; }
+  .step .num { font-family: var(--font-head); font-weight: 800; font-size: 1.1rem; width: 44px; height: 44px; border-radius: 12px; background: var(--accent); color: var(--teal-900); display: grid; place-items: center; margin-bottom: 18px; }
+  .step h3 { color: #fff; font-size: 1.14rem; margin-bottom: 9px; }
+  .step p { color: #c6e8e3; font-size: 0.95rem; }
+
+  /* Appointment / contact */
+  .appt { background: #fff; }
+  .appt-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: stretch; }
+  .appt-info h2 { font-size: clamp(1.8rem, 3.4vw, 2.4rem); color: var(--teal-900); margin-bottom: 16px; }
+  .appt-info > p { color: var(--ink-soft); font-size: 1.06rem; margin-bottom: 28px; }
+  .info-list { display: grid; gap: 18px; margin-bottom: 30px; }
+  .info-item { display: flex; gap: 16px; align-items: flex-start; }
+  .info-item .ic { width: 46px; height: 46px; border-radius: 12px; background: var(--teal-050); display: grid; place-items: center; flex: none; }
+  .info-item .ic svg { width: 22px; height: 22px; }
+  .info-item b { font-family: var(--font-head); font-size: 1rem; color: var(--teal-900); display: block; }
+  .info-item span { color: var(--ink-soft); font-size: 0.97rem; }
+  .info-item a.callto { font-family: var(--font-head); font-weight: 700; font-size: 1.25rem; color: var(--teal-700); }
+  .map { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); height: 190px; position: relative; background: var(--teal-050); }
+  .map .pin { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -62%); }
+  .map .pin svg { width: 40px; height: 40px; }
+  .map .lbl { position: absolute; bottom: 12px; left: 12px; background: #fff; border-radius: 8px; padding: 7px 13px; font-size: 0.84rem; font-weight: 600; color: var(--teal-900); box-shadow: var(--shadow-sm); }
+  .map .grid-lines { position: absolute; inset: 0; background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px); background-size: 38px 38px; opacity: 0.6; }
+
+  .appt-form { background: var(--bg-soft); border: 1px solid var(--line); border-radius: 20px; padding: 34px; box-shadow: var(--shadow-sm); }
+  .appt-form h3 { font-size: 1.35rem; color: var(--teal-900); margin-bottom: 6px; }
+  .appt-form p.hint { color: var(--ink-soft); font-size: 0.94rem; margin-bottom: 24px; }
+  .field { margin-bottom: 18px; }
+  .field label { display: block; font-family: var(--font-head); font-weight: 600; font-size: 0.88rem; color: var(--ink); margin-bottom: 7px; }
+  .field input, .field select, .field textarea {
+    width: 100%; font-family: var(--font-body); font-size: 0.98rem; color: var(--ink);
+    padding: 13px 15px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: #fff;
+    transition: border-color .15s ease, box-shadow .15s ease;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--teal-500); box-shadow: 0 0 0 3px rgba(34,167,157,0.18); }
+  .field textarea { resize: vertical; min-height: 92px; }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .appt-form .btn { width: 100%; justify-content: center; margin-top: 6px; }
+  .form-note { text-align: center; font-size: 0.82rem; color: var(--ink-soft); margin-top: 14px; }
+
+  /* Footer */
+  footer.site { background: var(--teal-900); color: #bfe6e1; padding: 64px 0 0; }
+  .foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 46px; }
+  .foot-brand .brand .name, .foot-brand .brand .name small { color: #fff; }
+  .foot-brand p { margin-top: 16px; font-size: 0.93rem; color: #a9d8d2; max-width: 300px; }
+  footer.site h4 { font-family: var(--font-head); color: #fff; font-size: 0.96rem; margin-bottom: 18px; letter-spacing: 0.02em; }
+  footer.site ul { list-style: none; display: grid; gap: 11px; }
+  footer.site ul a, footer.site ul li { font-size: 0.92rem; color: #a9d8d2; }
+  footer.site ul a:hover { color: #fff; }
+  .foot-ct { display: flex; gap: 10px; align-items: flex-start; }
+  .foot-ct svg { width: 17px; height: 17px; flex: none; margin-top: 3px; color: var(--accent); }
+  .foot-bottom { border-top: 1px solid rgba(255,255,255,0.12); padding: 22px 0; display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between; align-items: center; }
+  .foot-bottom p { font-size: 0.85rem; color: #8fc4bd; }
+  .foot-bottom .mini { display: flex; gap: 18px; }
+  .foot-bottom .mini a { font-size: 0.85rem; color: #8fc4bd; }
+  .foot-bottom .mini a:hover { color: #fff; }
+
+  /* Mobile nav toggle */
+  .menu-btn { display: none; background: none; border: none; cursor: pointer; padding: 6px; }
+  .menu-btn svg { width: 28px; height: 28px; color: var(--teal-800); }
+
+  /* Responsive */
+  @media (max-width: 960px) {
+    .hero .wrap { grid-template-columns: 1fr; gap: 40px; }
+    .about-grid { grid-template-columns: 1fr; gap: 64px; }
+    .appt-grid { grid-template-columns: 1fr; gap: 36px; }
+    .svc-grid, .steps-grid { grid-template-columns: 1fr 1fr; }
+    .cases-grid { grid-template-columns: repeat(3, 1fr); }
+    .foot-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+    nav.links { display: none; }
+    .nav-phone { display: none; }
+  }
+  @media (max-width: 600px) {
+    section { padding: 60px 0; }
+    .wrap { padding: 0 18px; }
+    .svc-grid, .steps-grid, .cases-grid { grid-template-columns: 1fr; }
+    .field-row { grid-template-columns: 1fr; }
+    .foot-grid { grid-template-columns: 1fr; }
+    .hero-trust { gap: 20px; }
+    .topbar .wrap { gap: 6px 18px; font-size: 0.78rem; }
+    .about-badge { right: 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Top bar -->
+<div class="topbar">
+  <div class="wrap">
+    <span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z"/></svg>
+      <strong>914-664-1380</strong>
+    </span>
+    <span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="10" r="3"/><path d="M12 2a8 8 0 0 0-8 8c0 5.4 8 12 8 12s8-6.6 8-12a8 8 0 0 0-8-8Z"/></svg>
+      2 Gramatan Ave., Suite 206, Mount Vernon, NY 10550
+    </span>
+    <span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+      Mon to Fri, 10:00 AM to 6:00 PM
+    </span>
+  </div>
+</div>
+
+<!-- Nav -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.5-1.5 3-3.3 3-5.5A4.5 4.5 0 0 0 12 5.5 4.5 4.5 0 0 0 2 8.5c0 2.2 1.5 4 3 5.5l7 7Z"/><path d="M8 11h3l1.5-3 2 6 1.5-3H18"/></svg>
+      </span>
+      <span class="name">Westchester Chiropractic<br>Healthcare, P.C.
+        <small>Chiropractic &amp; Physical Therapy</small>
+      </span>
+    </a>
+    <nav class="links">
+      <a href="#services">Services</a>
+      <a href="#cases">Cases We Handle</a>
+      <a href="#about">About</a>
+      <a href="#visit">Visit</a>
+      <a href="#appointment">Appointment</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="nav-phone" href="tel:19146641380">914-664-1380</a>
+      <a class="btn btn-primary" href="#appointment">Book Appointment</a>
+      <button class="menu-btn" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-text">
+      <span class="hero-pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 3 7v6c0 5 3.8 8.5 9 9 5.2-.5 9-4 9-9V7Z"/><path d="m9 12 2 2 4-4"/></svg>
+        Serving Mount Vernon and Westchester since 1999
+      </span>
+      <h1>Move better, feel better, <span class="hl">live healthier.</span></h1>
+      <p class="lede">Westchester Chiropractic Healthcare provides chiropractic care, physical therapy, and pain management for your whole family, right in the heart of Mount Vernon.</p>
+      <p class="tag">Call today for a healthier tomorrow.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#appointment">Book an Appointment</a>
+        <a class="btn btn-ghost" href="tel:19146641380">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z"/></svg>
+          Call 914-664-1380
+        </a>
+      </div>
+      <div class="hero-trust">
+        <div><b>25+ yrs</b><span>Caring for the community</span></div>
+        <div><b>Walk-ins</b><span>Emergency appointments</span></div>
+        <div><b>Insurance</b><span>No-Fault, Workers' Comp</span></div>
+      </div>
+    </div>
+
+    <aside class="hero-card" aria-label="Clinic quick facts">
+      <h3>Your neighborhood clinic</h3>
+      <p class="sub">Chiropractic and physical therapy under one roof.</p>
+      <div class="row">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#15706b" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+        <div><b>Open Mon to Fri</b><span>10:00 AM to 6:00 PM</span></div>
+      </div>
+      <div class="row">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#15706b" stroke-width="2"><circle cx="12" cy="10" r="3"/><path d="M12 2a8 8 0 0 0-8 8c0 5.4 8 12 8 12s8-6.6 8-12a8 8 0 0 0-8-8Z"/></svg></span>
+        <div><b>2 Gramatan Ave., Suite 206</b><span>Mount Vernon, NY 10550</span></div>
+      </div>
+      <div class="row">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#15706b" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z"/></svg></span>
+        <div><b>Call or fax</b><span>Phone 914-664-1380, Fax 914-664-1383</span></div>
+      </div>
+      <a class="btn btn-solid" href="#appointment">Request a visit</a>
+    </aside>
+  </div>
+</section>
+
+<!-- Services -->
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="shead">
+      <p class="eyebrow">What We Do</p>
+      <h2>Complete care, one trusted team</h2>
+      <p>Dr. Ciccone and his team of specialists combine chiropractic, physical therapy, and pain management to help you heal and stay well.</p>
+    </div>
+    <div class="svc-grid">
+      <article class="svc-card">
+        <div class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M8 6c0 2 1 3 4 3s4-1 4-3"/><path d="M8 18c0-2 1-3 4-3s4 1 4 3"/><path d="M8 12h8"/></svg></div>
+        <h3>Chiropractic Care</h3>
+        <p>Gentle, hands-on spinal adjustments that relieve back, neck, and joint pain and help restore natural movement.</p>
+      </article>
+      <article class="svc-card">
+        <div class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4v7a6 6 0 0 0 12 0V4"/><path d="M4 4h4"/><path d="M16 4h4"/><path d="M12 17v3"/><circle cx="12" cy="21" r="1.4"/></svg></div>
+        <h3>Physical Therapy</h3>
+        <p>Guided rehabilitation and therapeutic exercise that rebuild strength, flexibility, and function after injury.</p>
+      </article>
+      <article class="svc-card">
+        <div class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"/></svg></div>
+        <h3>Pain Management</h3>
+        <p>Personalized treatment plans that target the source of chronic and acute pain so you can get back to daily life.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Cases -->
+<section class="cases" id="cases">
+  <div class="wrap">
+    <div class="shead">
+      <p class="eyebrow">Cases We Handle</p>
+      <h2>Specialists in injury and accident care</h2>
+      <p>We work directly with the right paperwork and providers so you can focus on recovery, not red tape.</p>
+    </div>
+    <div class="cases-grid">
+      <div class="case-chip">
+        <div class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="#15706b" stroke-width="2"><path d="M5 17h14l-1.5-5.5a2 2 0 0 0-1.9-1.5H8.4a2 2 0 0 0-1.9 1.5Z"/><circle cx="7.5" cy="17.5" r="1.6"/><circle cx="16.5" cy="17.5" r="1.6"/></svg></div>
+        <b>Motor Vehicle Accidents</b>
+      </div>
+      <div class="case-chip">
+        <div class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="#15706b" stroke-width="2"><path d="M6 20V9l6-4 6 4v11"/><path d="M9 20v-5h6v5"/></svg></div>
+        <b>No-Fault Claims</b>
+      </div>
+      <div class="case-chip">
+        <div class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="#15706b" stroke-width="2"><path d="M4 7h16v12H4z"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/></svg></div>
+        <b>Workers' Compensation</b>
+      </div>
+      <div class="case-chip">
+        <div class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="#15706b" stroke-width="2"><path d="M14 4 6 14h5l-1 6 8-10h-5Z"/></svg></div>
+        <b>Slip and Fall / Lien Cases</b>
+      </div>
+      <div class="case-chip">
+        <div class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="#15706b" stroke-width="2"><path d="M12 21s-7-4.3-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.7-7 10-7 10Z"/></svg></div>
+        <b>Private Patients</b>
+      </div>
+    </div>
+    <p class="case-note">Emergency and walk-in appointments available. <strong>Currently accepting certain Medicare insurances,</strong> please call for more information.</p>
+  </div>
+</section>
+
+<!-- About -->
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div class="about-visual">
+      <div class="frame">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v1a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M6.5 22a5.5 5.5 0 0 1 11 0"/><path d="M12 9v4"/><path d="M9.5 11.5h5"/></svg>
+      </div>
+      <div class="about-badge">
+        <span class="yr">1999</span>
+        <span>Trusted by Mount<br>Vernon families</span>
+      </div>
+    </div>
+    <div class="about-text">
+      <p class="eyebrow">About The Practice</p>
+      <h2>Your neighborhood clinic since 1999</h2>
+      <p>Westchester Chiropractic Healthcare, P.C. has been caring for the Mount Vernon community for over two decades. Dr. Ciccone and his team of associates and specialists treat every patient with the attention and respect they deserve.</p>
+      <p>From everyday aches to accident and injury recovery, we bring chiropractic, physical therapy, and pain management together under one roof so your care stays simple and connected.</p>
+      <ul class="vals">
+        <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#15706b" stroke-width="2.5"><path d="m5 13 4 4L19 7"/></svg></span><span><b>Our patients are our family.</b> You are treated as a person, never a number.</span></li>
+        <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#15706b" stroke-width="2.5"><path d="m5 13 4 4L19 7"/></svg></span><span><b>Respect and compassionate care are priority.</b> Every plan is built around you.</span></li>
+        <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#15706b" stroke-width="2.5"><path d="m5 13 4 4L19 7"/></svg></span><span><b>Proudly serving Mount Vernon</b> and the surrounding Westchester area.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Steps -->
+<section class="steps">
+  <div class="wrap">
+    <div class="shead">
+      <p class="eyebrow">Getting Started Is Easy</p>
+      <h2>Three simple steps to relief</h2>
+      <p>No complicated sign-ups. Reach out and we will take care of the rest.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step">
+        <div class="num">1</div>
+        <h3>Reach out</h3>
+        <p>Call us or send the appointment request on this page. Walk-ins and emergencies are welcome.</p>
+      </div>
+      <div class="step">
+        <div class="num">2</div>
+        <h3>Get evaluated</h3>
+        <p>Dr. Ciccone and the team review your history and build a care plan that fits your needs.</p>
+      </div>
+      <div class="step">
+        <div class="num">3</div>
+        <h3>Start feeling better</h3>
+        <p>Begin treatment and move toward a stronger, healthier, pain-free routine.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Appointment / Contact -->
+<section class="appt" id="appointment">
+  <div class="wrap">
+    <div class="shead">
+      <p class="eyebrow">Book Your Visit</p>
+      <h2>Need to request an appointment?</h2>
+      <p>Book or call today. We will get back to you quickly during office hours.</p>
+    </div>
+    <div class="appt-grid">
+      <div class="appt-info" id="visit">
+        <h2>Visit us in Mount Vernon</h2>
+        <p>The fastest way to book is by phone. Call during office hours and our front desk will find a time that works for you.</p>
+        <div class="info-list">
+          <div class="info-item">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#15706b" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z"/></svg></span>
+            <div><b>Call to book</b><a class="callto" href="tel:19146641380">914-664-1380</a><br><span>Fax 914-664-1383</span></div>
+          </div>
+          <div class="info-item">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#15706b" stroke-width="2"><circle cx="12" cy="10" r="3"/><path d="M12 2a8 8 0 0 0-8 8c0 5.4 8 12 8 12s8-6.6 8-12a8 8 0 0 0-8-8Z"/></svg></span>
+            <div><b>Our location</b><span>2 Gramatan Ave., Suite 206, Mount Vernon, NY 10550</span></div>
+          </div>
+          <div class="info-item">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#15706b" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+            <div><b>Office hours</b><span>Monday to Friday, 10:00 AM to 6:00 PM. Saturday and Sunday closed.</span></div>
+          </div>
+        </div>
+        <div class="map" role="img" aria-label="Map showing the clinic near Gramatan Avenue in Mount Vernon, New York">
+          <div class="grid-lines"></div>
+          <div class="pin"><svg viewBox="0 0 24 24" fill="#15706b" stroke="#fff" stroke-width="1.5"><path d="M12 2a8 8 0 0 0-8 8c0 5.4 8 12 8 12s8-6.6 8-12a8 8 0 0 0-8-8Z"/><circle cx="12" cy="10" r="2.6" fill="#fff"/></svg></div>
+          <span class="lbl">2 Gramatan Ave., Mount Vernon</span>
+        </div>
+      </div>
+
+      <form class="appt-form" onsubmit="return false">
+        <h3>Request an appointment</h3>
+        <p class="hint">Send us your details and we will call to confirm a time. For urgent needs, please phone the office directly.</p>
+        <div class="field-row">
+          <div class="field">
+            <label for="fname">First name</label>
+            <input id="fname" type="text" placeholder="Jane" autocomplete="given-name">
+          </div>
+          <div class="field">
+            <label for="lname">Last name</label>
+            <input id="lname" type="text" placeholder="Doe" autocomplete="family-name">
+          </div>
+        </div>
+        <div class="field">
+          <label for="phone">Phone number</label>
+          <input id="phone" type="tel" placeholder="(914) 000-0000" autocomplete="tel">
+        </div>
+        <div class="field">
+          <label for="reason">Reason for visit</label>
+          <select id="reason">
+            <option>Chiropractic care</option>
+            <option>Physical therapy</option>
+            <option>Pain management</option>
+            <option>Auto accident or No-Fault</option>
+            <option>Workers' Compensation</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="notes">Preferred day or time (optional)</label>
+          <textarea id="notes" placeholder="For example, weekday mornings work best for me."></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit">Request Appointment</button>
+        <p class="form-note">Prefer to talk now? Call 914-664-1380 during office hours.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="brand">
+          <span class="mark">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.5-1.5 3-3.3 3-5.5A4.5 4.5 0 0 0 12 5.5 4.5 4.5 0 0 0 2 8.5c0 2.2 1.5 4 3 5.5l7 7Z"/><path d="M8 11h3l1.5-3 2 6 1.5-3H18"/></svg>
+          </span>
+          <span class="name">Westchester Chiropractic<br>Healthcare, P.C.
+            <small>Chiropractic &amp; Physical Therapy</small>
+          </span>
+        </div>
+        <p>Your neighborhood chiropractic and physical therapy clinic, caring for Mount Vernon and the surrounding Westchester area since 1999.</p>
+      </div>
+      <div>
+        <h4>Care</h4>
+        <ul>
+          <li><a href="#services">Chiropractic Care</a></li>
+          <li><a href="#services">Physical Therapy</a></li>
+          <li><a href="#services">Pain Management</a></li>
+          <li><a href="#cases">Accident &amp; Injury Cases</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Visit</h4>
+        <ul>
+          <li class="foot-ct"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="10" r="3"/><path d="M12 2a8 8 0 0 0-8 8c0 5.4 8 12 8 12s8-6.6 8-12a8 8 0 0 0-8-8Z"/></svg>2 Gramatan Ave., Suite 206, Mount Vernon, NY 10550</li>
+          <li class="foot-ct"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Mon to Fri, 10:00 AM to 6:00 PM</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li class="foot-ct"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z"/></svg><a href="tel:19146641380">914-664-1380</a></li>
+          <li class="foot-ct"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v8H6z"/></svg>Fax 914-664-1383</li>
+          <li><a class="btn btn-primary" href="#appointment" style="margin-top:6px;padding:11px 20px;font-size:0.9rem;">Book Appointment</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p>&copy; 2026 Westchester Chiropractic Healthcare, P.C. All rights reserved.</p>
+      <div class="mini">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#appointment">Appointment</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
